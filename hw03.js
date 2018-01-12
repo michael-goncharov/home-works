@@ -1,27 +1,33 @@
 // Написать скрипт, который на входе принимает любой текст - предложение/словосочетание/абзац.
 // В ходе обработки вывести в консоль количество слов, количество букв “а” в нем и среднюю длину слова.
 
-const text = prompt("Введите текст", "lorem ipsum aAeng аАрус");
-
-const textInfo = (string) => {
-  const strArray = string.split(" ");
-  let charCounter = 0;
-  let aCounter = 0;
-  strArray.forEach(function (element) {
-    charCounter += element.length;
-    for (let i = 0; i < element.length; i++) {
-      if (element[i] === "a" || element[i] === "A" || element[i] === "а" || element[i] === "А") {
-        aCounter++;
+const button = document.querySelector('#submit');
+button.onclick = function textInfo() {
+    const text = document.querySelector('#string').value;
+    const strArray = text.split(" ");
+    let charCounter = 0;
+    let aCounter = 0;
+    strArray.forEach(function (element) {
+      charCounter += element.length;
+      for (let i = 0; i < element.length; i++) {
+        if (element[i] === "a" || element[i] === "A" || element[i] === "а" || element[i] === "А") {
+          aCounter++;
+        }
       }
-    }
-  });
-  console.log("Текст: ", text);
-  console.log("Количество слов: ", strArray.length);
-  console.log("Средняя длина слова: ", Math.round(charCounter/strArray.length));
-  console.log("Количество букв 'а': ", aCounter);
-};
-
-textInfo(text);
+    });
+  const Li_01 = document.createElement('li');
+  const Li_02 = document.createElement('li');
+  const Li_03 = document.createElement('li');
+  const Li_04 = document.createElement('li');
+  Li_01.innerHTML = "Текст: " + text;
+  Li_02.innerHTML = "Количество слов: " + strArray.length;
+  Li_03.innerHTML = "Средняя длина слова: " + Math.round(charCounter/strArray.length);
+  Li_04.innerHTML = "Количество букв 'а': " + aCounter;
+  list.appendChild(Li_01);
+  list.appendChild(Li_02);
+  list.appendChild(Li_03);
+  list.appendChild(Li_04);
+  };
 
 /*
 Напишите функцию range, принимающую два аргумента, начало и конец диапазона,
