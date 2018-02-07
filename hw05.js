@@ -12,13 +12,30 @@
 */
 
 
-class machine {
-  constructor(name) {
+//Classes
+
+class Machine {
+  constructor(manuf, model, type) {
     this.manuf = manuf;
     this.model = model;
     this.type = type;
   }
-  status() {
+}
 
+class Microwave extends Machine {
+  get heating() {
+    console.log('Microwave is working...');
+    setTimeout(console.log, 2000, 'food is warm now');
+  }
+}
+class CoffeMachine extends Machine {
+    get coffee() {
+      console.log('CoffeMachine is working...');
+      setTimeout(console.log, 1000, 'Coffee')
     }
 }
+
+myCoffeeMaker = new CoffeMachine('Samsung', 'cm-01', 'full-cycle');
+myCoffeeMaker.coffee;
+myMicrowave = new Microwave('LG', 'mw_01', 'plain');
+myMicrowave.heating;

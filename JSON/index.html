@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- <div id="widget">
+
+    </div> -->
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    // var widget = document.getElementById('widget');
+    // var xhr = new XMLHttpRequest();
+    // xhr.onreadystatechange = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //        var response = JSON.parse(xhr.responseText);
+    //        var media = response.user.media.nodes;
+    //        var previews = [];
+    //        for (var i = 0; i < media.length; i++) {
+    //          previews.push(media[i].thumbnail_src);
+    //          var image = new Image();
+    //          image.src = previews[i];
+    //          widget.appendChild(image);
+    //        }
+    //     }
+    // };
+    // xhr.open("GET", "https://www.instagram.com/source.it/?_a=1", true);
+    // xhr.send();
+    // var data = {
+    //   user: 'John',
+    //   username: 'JohnDoe12345'
+    // }
+    // var jsondata = JSON.stringify(data);
+    // console.log(jsondata);
+    // data - JSON.parse(jsondata);
+    // console.log(data);
+    //---=-=-=-=-=-=-=
+    // $.ajax({
+    //   url: "https://www.instagram.com/source.it/?_a=1",
+    //   method: 'GET'
+    // }).done(function() {
+    //   console.log('ready')
+    // })
+    var media;
+    $.getJSON("https://www.instagram.com/source.it/?_a=1", function (resp) {
+      $.each(resp, function () {
+        media = resp.user.media.nodes;
+      });
+      console.log(media);
+    });
+    </script>
+  </body>
+</html>
